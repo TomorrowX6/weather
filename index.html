@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天气 · iOS 26 Liquid Glass</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="sunny">
+
+  <!-- 环境光背景 -->
+  <div class="ambient" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main class="stage">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="app-title">天气</h1>
+        <p class="app-sub" id="date">— 月 — 日</p>
+      </div>
+      <div class="topbar-right">
+        <span class="now-summary" id="now-summary"></span>
+        <span class="updated" id="updated"></span>
+        <span class="clock" id="clock">--:--</span>
+        <button class="icon-btn" id="btn-unit" title="切换温度单位">°F</button>
+        <button class="icon-btn" id="btn-refresh" title="刷新数据">⟳</button>
+        <button class="icon-btn" id="btn-add" title="添加城市">＋</button>
+      </div>
+    </header>
+
+    <section class="cards" id="cards" aria-live="polite"></section>
+
+    <section class="panel" id="panel"></section>
+
+  </main>
+
+  <!-- 添加城市弹窗 -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="添加城市">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2>添加城市</h2>
+        <button class="icon-btn" data-close title="关闭">✕</button>
+      </div>
+      <input class="search-input" id="search-input" type="text"
+             placeholder="搜索城市，如：北京 / Shanghai" autocomplete="off" spellcheck="false">
+      <button class="locate-btn" id="btn-locate">📍 使用当前位置</button>
+      <ul class="results" id="results"><li class="results-empty">输入城市名开始搜索</li></ul>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
